@@ -1,0 +1,35 @@
+pipeline:
+  identifier: Build_krrishkishore_cicd_1720882878577
+  name: Build cicd
+  orgIdentifier: default
+  projectIdentifier: mydemo
+  properties:
+    ci:
+      codebase:
+        build: <+input>
+        connectorRef: account.Github_OAuth_1677504810510
+        repoName: krrishkishore/cicd
+  stages:
+    - stage:
+        identifier: build
+        name: build
+        spec:
+          caching:
+            enabled: true
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  identifier: echo
+                  name: echo
+                  spec:
+                    command: echo hello world
+                  timeout: ""
+                  type: Run
+          platform:
+            arch: Amd64
+            os: Linux
+          runtime:
+            spec: {}
+            type: Cloud
+        type: CI
